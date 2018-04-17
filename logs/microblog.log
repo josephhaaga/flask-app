@@ -29,3 +29,4 @@ Traceback (most recent call last):
     return render_tempalte('404.html'), 404
 NameError: name 'render_tempalte' is not defined
 2018-04-11 16:27:15,987 INFO: Microblog statup [in /Users/joseph/Documents/playground/flask-app/app/__init__.py:30]
+2018-04-17 13:30:18,069 INFO: Microblog statup [in /Users/joseph/Documents/playground/flask-app/app/__init__.py:30]
