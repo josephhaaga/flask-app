@@ -1,4 +1,4 @@
 Flask
 flask_wtf
-flask_sqlalchemy
-flask_migrate
+flask-sqlalchemy
+flask-migrate
