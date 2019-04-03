@@ -42,3 +42,4 @@ NameError: name 'render_tempalte' is not defined
 2019-04-02 21:36:05,895 INFO: Microblog statup [in /Users/josephhaaga/Documents/flask-app/app/__init__.py:31]
 2019-04-02 21:38:42,433 INFO: Microblog statup [in /Users/josephhaaga/Documents/flask-app/app/__init__.py:31]
 2019-04-02 21:39:13,733 INFO: Microblog statup [in /Users/josephhaaga/Documents/flask-app/app/__init__.py:31]
+2019-04-02 21:42:26,331 INFO: Microblog statup [in /Users/josephhaaga/Documents/flask-app/app/__init__.py:31]
