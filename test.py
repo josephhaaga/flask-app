@@ -16,7 +16,7 @@ class UserModelCase(unittest.TestCase):
         u = User(username='susan')
         u.set_password('cat')
         self.assertFalse(u.check_password('dog'))
-        self.assetTrue(u.check_password('cat'))
+        self.assertTrue(u.check_password('cat'))
 
     def test_avatar(self):
         u = User(username='john', email='john@example.com')
@@ -75,7 +75,7 @@ class UserModelCase(unittest.TestCase):
         u3.follow(u4)  # mary follows david
         db.session.commit()
 
-        # check the followed posts of each user
+        # check the followed posts of each user)
         f1 = u1.followed_posts().all()
         f2 = u2.followed_posts().all()
         f3 = u3.followed_posts().all()
