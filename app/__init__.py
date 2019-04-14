@@ -30,8 +30,6 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog statup')
 
-'''
-if not app.debug:
 	if app.config['MAIL_SERVER']:
 		auth = None
 		if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
@@ -46,4 +44,3 @@ if not app.debug:
 			credentials=auth, secure=secure)
 		mail_handler.setLevel(logging.ERROR)
 		app.logger.addHandler(mail_handler)
-'''
