@@ -13,3 +13,5 @@ class Config(object):
 	MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 	ADMINS = ['haaga.joe+flaskadmin@gmail.com']
+	# APPLICATION-WIDE "KNOBS" (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination)
+	POSTS_PER_PAGE = 3

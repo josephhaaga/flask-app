@@ -24,8 +24,9 @@ def index():
 		db.session.commit()
 		flash('Your post is now live!')
 		return redirect(url_for('index'))
-	posts = current_user.followed_posts().all()
-	return render_template('index.html', title="Home Page", form=form, posts=posts)
+	page = request.args('page', 1, type=int)
+	posts = current_user.followed_posts().paginate(page, app.config['POSTS_PER_PAGE'], False)
+	return render_template('index.html', title="Home Page", form=form, posts=posts.items)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -64,15 +65,11 @@ def register():
 	return render_template('register.html', title="Register", form=form)
 
 
-
 @app.route('/user/<username>')
 @login_required
 def user(username):
 	user = User.query.filter_by(username=username).first_or_404()
-	posts = [
-		{'author': user, 'body': 'Test post #1'},
-		{'author': user, 'body': 'Test post #2'},
-	]
+	posts = user.posts
 	return render_template('user.html', user=user, posts=posts)
 
 @app.route('/edit_profile', methods=['GET','POST'])
@@ -123,6 +120,7 @@ def unfollow(username):
 @app.route('/explore')
 @login_required
 def explore():
-	posts = Post.query.order_by(Post.timestamp.desc()).all()
-	return render_template('index.html', title='Explore', posts=posts)
+	page = request.args('page', 1, type=int)
+	posts = Post.query.order_by(Post.timestamp.desc()).paginate(page, app.config['POSTS_PER_PAGE'], False).items
+	return render_template('index.html', title='Explore', posts=posts.items)
 	# We can reuse the homepage template, but exclude the submission form
