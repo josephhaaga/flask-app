@@ -120,3 +120,9 @@ def unfollow(username):
 	flash('You are not following {}.'.format(username))
 	return redirect(url_for('user', username=username))
 	
+@app.route('/explore')
+@login_required
+def explore():
+	posts = Post.query.order_by(Post.timestamp.desc()).all()
+	return render_template('index.html', title='Explore', posts=posts)
+	# We can reuse the homepage template, but exclude the submission form
